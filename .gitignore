@@ -1,0 +1,20 @@
+# OS/IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# WordPress / safety
+wp-content/uploads/
+wp-config.php
+*.sql
+*.wpress
+*.log
+
+# Build artefacts
+node_modules/
+vendor/
+dist/
+
+# Backups
+*.bak
