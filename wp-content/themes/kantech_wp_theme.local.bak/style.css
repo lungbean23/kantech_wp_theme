@@ -1,0 +1,288 @@
+/*
+ Theme Name: Kantech Equipment Theme
+ Theme URI: https://www.kantechequipment.com/
+ Author: Your Name
+ Description: A custom WordPress theme based on the KantechEquipment.com static site.  This theme registers a custom post type for products and organizes them by category.  It includes a modern header, navigation, hero section and product grid.
+ Version: 1.0
+ License: GPL-2.0+
+ License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/* Import Google Fonts if desired (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* Global resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #003057;
+  --secondary-color: #fe9f0c;
+  --danger-color: #d9534f;
+  --danger-hover: #c9302c;
+  --text-color: #333;
+  --bg-color: #f5f7fa;
+}
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Header styling */
+.header {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+}
+
+.header h1 {
+  font-size: 1.6rem;
+  white-space: nowrap;
+}
+
+.search-cart-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.search-cart-area input {
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: none;
+  width: 220px;
+  max-width: 100%;
+  font-size: 1rem;
+}
+
+.cart-button {
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.cart-button:hover {
+  background-color: #e88a00;
+}
+
+/* Top navigation */
+.top-nav {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+.top-nav li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.2s ease, border-bottom-color 0.2s ease;
+}
+.top-nav li:hover,
+.top-nav li.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom-color: var(--secondary-color);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+.hero-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+.hero-text p {
+  font-size: 1.1rem;
+}
+
+/* Content grid for product list */
+.content {
+  padding: 2rem;
+}
+.content section {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 600px) {
+  .content section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .content section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+}
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+.product-card h3 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.3rem;
+}
+.product-card p {
+  font-size: 0.9rem;
+  color: #555;
+  flex-grow: 1;
+}
+.card-actions {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.quantity-input {
+  width: 60px;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-to-cart-btn {
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+.add-to-cart-btn:hover {
+  background-color: #e88a00;
+}
+
+/* Product detail page */
+.product-detail .detail-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: flex-start;
+}
+@media (max-width: 800px) {
+  .product-detail .detail-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detail-left .detail-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+.image-gallery {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 0.8rem;
+}
+.image-gallery img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.image-gallery img.active {
+  border-color: var(--secondary-color);
+}
+.detail-right h2 {
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+}
+.detail-right .price {
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+.detail-right .card-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Footer */
+.footer {
+  background-color: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+}

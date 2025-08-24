@@ -1,0 +1,9 @@
+# dynamic / heavy
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/jetpack-waf/
+*.log
+
+# secrets (keep only sample in git)
+wp-config.php
