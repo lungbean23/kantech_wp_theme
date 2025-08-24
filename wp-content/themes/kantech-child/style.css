@@ -1,0 +1,15 @@
+/*
+Theme Name:     Kantech-child
+Theme URI:      
+Description:    Kantech_wp_theme child theme.
+Author:         Me
+Author URI:     
+Template:       kantech_wp_theme
+Version:        0.1.0
+*/
+
+.cart-link .count {
+  display:inline-block; padding:0 .4em; min-width:1.2em;
+  border-radius:1em; font-weight:700; text-align:center;
+}
+
